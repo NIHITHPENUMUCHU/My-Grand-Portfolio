@@ -3,7 +3,7 @@ import {
   Diamond, 
   ArrowRight, 
   Mail, 
-  ChevronDown, 
+  ChevronDown, // Fixed: Added missing import
   Code, 
   Cpu, 
   Sparkles,
@@ -432,7 +432,7 @@ const ProjectSlider = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const xPos = useRef(0);
   const velocity = useRef(0);
-  const reqId = useRef<number>();
+  const reqId = useRef<number>(0);
   const lastX = useRef(0);
   const isHovered = useRef(false);
 
@@ -468,9 +468,7 @@ const ProjectSlider = () => {
   useEffect(() => {
     xPos.current = -TOTAL_WIDTH;
     reqId.current = requestAnimationFrame(animate);
-    return () => { 
-        if (reqId.current) cancelAnimationFrame(reqId.current); 
-    };
+    return () => cancelAnimationFrame(reqId.current);
   }, [animate, TOTAL_WIDTH]);
 
   const handleMouseDown = (e: React.MouseEvent) => {

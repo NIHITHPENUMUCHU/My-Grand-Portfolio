@@ -18,52 +18,27 @@ import {
   ArrowLeft,
   Briefcase,
   Phone,
-  Terminal,
   BookOpen,
-  Layers,
-  Sun,
-  Moon
+  Layers
 } from 'lucide-react';
 
 /**
- * PERSONAL GRAND PORTFOLIO - SENTINEL V2 HYBRID EDITION (Fixed Icons)
+ * PERSONAL GRAND PORTFOLIO - SENTINEL V2 HYBRID EDITION (Production Fixes)
  * Customized for Nihith Penumuchu
- * Features: Custom SVG Icons for Brands, 3D Sentinel (V2), Infinite Physics Slider
+ * Features: Custom SVG Icons, 3D Sentinel (V2), Infinite Physics Slider
  */
 
-// --- Custom Brand Icons (Replacing deprecated Lucide exports) ---
+// --- Custom Brand Icons ---
 
 const GithubIcon = ({ size = 24, className = "" }: { size?: number, className?: string }) => (
-  <svg 
-    xmlns="http://www.w3.org/2000/svg" 
-    width={size} 
-    height={size} 
-    viewBox="0 0 24 24" 
-    fill="none" 
-    stroke="currentColor" 
-    strokeWidth="2" 
-    strokeLinecap="round" 
-    strokeLinejoin="round" 
-    className={className}
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
     <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
     <path d="M9 18c-4.51 2-5-2-7-2" />
   </svg>
 );
 
 const LinkedinIcon = ({ size = 24, className = "" }: { size?: number, className?: string }) => (
-  <svg 
-    xmlns="http://www.w3.org/2000/svg" 
-    width={size} 
-    height={size} 
-    viewBox="0 0 24 24" 
-    fill="none" 
-    stroke="currentColor" 
-    strokeWidth="2" 
-    strokeLinecap="round" 
-    strokeLinejoin="round" 
-    className={className}
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
     <rect width="4" height="12" x="2" y="9" />
     <circle cx="4" cy="4" r="2" />
@@ -312,21 +287,13 @@ const SpotlightCard = ({ children, className = "" }: { children: React.ReactNode
 const MiniSentinel = ({ pose }: { pose: { rX: number, rY: number, pX: number, pY: number } }) => {
   return (
     <div className="perspective-1000 w-48 h-48 flex items-center justify-center opacity-90 pointer-events-none">
-      <div 
-        className="w-32 h-40 bg-gradient-to-b from-slate-800 to-slate-950 rounded-[1.5rem] relative transform-style-3d shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-slate-700/50"
-        style={{ 
-          transform: `rotateX(${pose.rX}deg) rotateY(${pose.rY}deg)`,
-        }}
-      >
-        {/* Face Plate */}
+      <div className="w-32 h-40 bg-gradient-to-b from-slate-800 to-slate-950 rounded-[1.5rem] relative transform-style-3d shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-slate-700/50" style={{ transform: `rotateX(${pose.rX}deg) rotateY(${pose.rY}deg)` }}>
         <div className="absolute inset-2 bg-black/80 rounded-[1.2rem] border border-slate-600/30 overflow-hidden backdrop-blur-sm shadow-inner">
            <div className="absolute -top-[50%] -left-[50%] w-[200%] h-[200%] bg-gradient-to-br from-white/5 to-transparent rotate-45 pointer-events-none z-10"></div>
            <div className="absolute top-[35%] left-0 w-full flex justify-center gap-4 px-2 z-20">
-              {/* Left Eye */}
               <div className="w-10 h-10 bg-slate-900 rounded-full border-2 border-slate-700 shadow-[inset_0_0_10px_rgba(0,0,0,1)] flex items-center justify-center relative overflow-hidden">
                  <div className="w-4 h-4 bg-gradient-to-tr from-amber-300 to-orange-600 rounded-full shadow-[0_0_15px_rgba(245,158,11,1)]" style={{ transform: `translate(${pose.pX}px, ${pose.pY}px)` }}><div className="w-1 h-1 bg-white rounded-full absolute top-0.5 right-0.5 opacity-90"></div></div>
               </div>
-              {/* Right Eye */}
               <div className="w-10 h-10 bg-slate-900 rounded-full border-2 border-slate-700 shadow-[inset_0_0_10px_rgba(0,0,0,1)] flex items-center justify-center relative overflow-hidden">
                  <div className="w-4 h-4 bg-gradient-to-tr from-amber-300 to-orange-600 rounded-full shadow-[0_0_15px_rgba(245,158,11,1)]" style={{ transform: `translate(${pose.pX}px, ${pose.pY}px)` }}><div className="w-1 h-1 bg-white rounded-full absolute top-0.5 right-0.5 opacity-90"></div></div>
               </div>
@@ -336,10 +303,8 @@ const MiniSentinel = ({ pose }: { pose: { rX: number, rY: number, pX: number, pY
               <div className="w-[70%] mx-auto h-0.5 bg-slate-500 rounded-full"></div>
            </div>
         </div>
-        {/* Antennae (V2 Design) */}
         <div className="absolute top-10 -left-2 w-2 h-12 bg-slate-700 rounded-l-lg border-l border-slate-600"></div>
         <div className="absolute top-10 -right-2 w-2 h-12 bg-slate-700 rounded-r-lg border-r border-slate-600"></div>
-        {/* Top Sensor (V2 Design) */}
         <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-12 h-6 bg-slate-800 rounded-t-lg border-t border-slate-600 flex items-center justify-center">
              <div className="w-6 h-1 bg-cyan-500/50 rounded-full shadow-[0_0_10px_cyan]"></div>
         </div>
@@ -414,6 +379,9 @@ const InteractiveAvatar = () => {
   else if (mood === 'happy') { pupilColor = 'from-cyan-400 to-blue-500'; shadowColor = 'shadow-cyan-400'; }
 
   const eyeShapeClass = isSleeping ? 'h-1 mt-6 opacity-50' : mood === 'alert' ? 'h-8 mt-3 border-t-4 border-slate-800' : mood === 'happy' ? 'h-12 animate-bounce-small' : 'h-12';
+  // Ensure blinking overrides specific mood shapes temporarily
+  const finalEyeClass = isBlinking ? 'h-1 mt-6' : eyeShapeClass;
+  
   const headTransform = isSleeping ? `rotateX(15deg) rotateY(0deg) translateY(10px)` : `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`;
 
   return (
@@ -424,7 +392,7 @@ const InteractiveAvatar = () => {
            <div className="absolute -top-[50%] -left-[50%] w-[200%] h-[200%] bg-gradient-to-br from-cyan-500/5 via-purple-500/5 to-transparent rotate-45 pointer-events-none z-10"></div>
            <div className="absolute top-[35%] left-0 w-full flex justify-center gap-8 px-4 z-10 transition-all duration-500">
               {[0, 1].map((i) => (
-                  <div key={i} className={`w-12 bg-slate-900 rounded-full border-2 border-slate-700 shadow-inner flex items-center justify-center relative overflow-hidden transition-all duration-500 ${eyeShapeClass}`}>
+                  <div key={i} className={`w-12 bg-slate-900 rounded-full border-2 border-slate-700 shadow-inner flex items-center justify-center relative overflow-hidden transition-all duration-500 ${finalEyeClass}`}>
                     {!isSleeping && (
                         <div className={`w-5 h-5 bg-gradient-to-tr ${pupilColor} rounded-full shadow-[0_0_20px_currentColor] transition-all duration-300 ease-out ${shadowColor}`} style={{ transform: `translate(${pupilOffset.x}px, ${pupilOffset.y}px)` }}>
                             <div className="w-1.5 h-1.5 bg-white rounded-full absolute top-1 right-1 opacity-90"></div>
@@ -500,7 +468,9 @@ const ProjectSlider = () => {
   useEffect(() => {
     xPos.current = -TOTAL_WIDTH;
     reqId.current = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(reqId.current!);
+    return () => { 
+        if (reqId.current) cancelAnimationFrame(reqId.current); 
+    };
   }, [animate, TOTAL_WIDTH]);
 
   const handleMouseDown = (e: React.MouseEvent) => {
@@ -563,7 +533,6 @@ const ProjectSlider = () => {
                     <span className="text-5xl font-serif font-bold text-white/10">{project.id.toString().padStart(2, '0')}</span>
                     <div className="p-2 backdrop-blur-md rounded-full border bg-black/50 border-white/10"><ArrowRight size={16} className="text-amber-400 -rotate-45 group-hover:rotate-0 transition-transform" /></div>
                 </div>
-                {/* Moved Mini Sentinel to Top-Right */}
                 <div className="absolute top-20 right-16 z-0 opacity-80 group-hover:scale-110 transition-transform duration-500 pointer-events-none"><MiniSentinel pose={project.pose} /></div>
                 <div className="space-y-4 relative z-20">
                     <div className="text-amber-500 text-[10px] uppercase tracking-widest font-mono">{project.category}</div>

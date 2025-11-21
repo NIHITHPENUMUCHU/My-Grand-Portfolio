@@ -195,7 +195,7 @@ const RESUME_DATA = {
     github: "github.com/NIHITHPENUMUCHU",
     portfolio: "nihith-penumuchu-portfolio.netlify.app"
   },
-  summary: "Motivated and adaptable Computer Science undergraduate specializing in Artificial Intelligence and Machine Learning at SRM University. Skilled in Python, SQL, and problem-solving with hands-on experience in both technical development and collaborative project work. Seeking to leverage skills in full-stack development and AI research.",
+  summary: "Motivated and adaptable Computer Science graduate specialized in Artificial Intelligence and Machine Learning at SRM University. Skilled in Python, SQL, and problem-solving with hands-on experience in both technical development and collaborative project work. Seeking to leverage skills in full-stack development and AI research.",
   experience: WORK_EXPERIENCE,
   education: {
     uni: "SRM UNIVERSITY, KTR Campus",

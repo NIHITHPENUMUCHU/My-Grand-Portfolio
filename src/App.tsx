@@ -3,7 +3,7 @@ import {
   Diamond, 
   ArrowRight, 
   Mail, 
-  ChevronDown, // Fixed: Added missing import
+  ChevronDown, 
   Code, 
   Cpu, 
   Sparkles,
@@ -19,31 +19,16 @@ import {
   Briefcase,
   Phone,
   BookOpen,
-  Layers
+  Layers,
+  ChevronLeft, 
+  ChevronRight
 } from 'lucide-react';
 
 /**
- * PERSONAL GRAND PORTFOLIO - SENTINEL V2 HYBRID EDITION (Production Fixes)
+ * PERSONAL GRAND PORTFOLIO - FINAL STABLE EDITION
  * Customized for Nihith Penumuchu
- * Features: Custom SVG Icons, 3D Sentinel (V2), Infinite Physics Slider
+ * Features: 3D Sentinel (V2), CSS-Powered Infinite Slider (Lag-Free), Spotlight Cards
  */
-
-// --- Custom Brand Icons ---
-
-const GithubIcon = ({ size = 24, className = "" }: { size?: number, className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-    <path d="M9 18c-4.51 2-5-2-7-2" />
-  </svg>
-);
-
-const LinkedinIcon = ({ size = 24, className = "" }: { size?: number, className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-    <rect width="4" height="12" x="2" y="9" />
-    <circle cx="4" cy="4" r="2" />
-  </svg>
-);
 
 // --- Data Assets ---
 
@@ -195,7 +180,7 @@ const RESUME_DATA = {
     github: "github.com/NIHITHPENUMUCHU",
     portfolio: "nihith-penumuchu-portfolio.netlify.app"
   },
-  summary: "Motivated and adaptable Computer Science graduate specialized in Artificial Intelligence and Machine Learning at SRM University. Skilled in Python, SQL, and problem-solving with hands-on experience in both technical development and collaborative project work. Seeking to leverage skills in full-stack development and AI research.",
+  summary: "Motivated and adaptable Computer Science undergraduate specializing in Artificial Intelligence and Machine Learning at SRM University. Skilled in Python, SQL, and problem-solving with hands-on experience in both technical development and collaborative project work. Seeking to leverage skills in full-stack development and AI research.",
   experience: WORK_EXPERIENCE,
   education: {
     uni: "SRM UNIVERSITY, KTR Campus",
@@ -209,6 +194,23 @@ const RESUME_DATA = {
     core: ["DSA", "Machine Learning", "Cloud Computing"]
   }
 };
+
+// --- Custom Brand Icons ---
+
+const GithubIcon = ({ size = 24, className = "" }: { size?: number, className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+    <path d="M9 18c-4.51 2-5-2-7-2" />
+  </svg>
+);
+
+const LinkedinIcon = ({ size = 24, className = "" }: { size?: number, className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect width="4" height="12" x="2" y="9" />
+    <circle cx="4" cy="4" r="2" />
+  </svg>
+);
 
 // --- Utility Hooks ---
 const useScrollReveal = () => {
@@ -379,9 +381,7 @@ const InteractiveAvatar = () => {
   else if (mood === 'happy') { pupilColor = 'from-cyan-400 to-blue-500'; shadowColor = 'shadow-cyan-400'; }
 
   const eyeShapeClass = isSleeping ? 'h-1 mt-6 opacity-50' : mood === 'alert' ? 'h-8 mt-3 border-t-4 border-slate-800' : mood === 'happy' ? 'h-12 animate-bounce-small' : 'h-12';
-  // Ensure blinking overrides specific mood shapes temporarily
   const finalEyeClass = isBlinking ? 'h-1 mt-6' : eyeShapeClass;
-  
   const headTransform = isSleeping ? `rotateX(15deg) rotateY(0deg) translateY(10px)` : `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`;
 
   return (
@@ -426,112 +426,39 @@ const InteractiveAvatar = () => {
   );
 };
 
-// --- High-Performance Physics Slider (Direct DOM Manipulation) ---
+// --- Pure CSS Infinite Scroll (Lag-Free) ---
 const ProjectSlider = () => {
-  const [isDragging, setIsDragging] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const xPos = useRef(0);
-  const velocity = useRef(0);
-  const reqId = useRef<number>(0);
-  const lastX = useRef(0);
-  const isHovered = useRef(false);
-
-  const slides = [...PROJECTS, ...PROJECTS, ...PROJECTS];
-  const ITEM_WIDTH = 352; 
-  const TOTAL_WIDTH = PROJECTS.length * ITEM_WIDTH;
-
-  const animate = useCallback(() => {
-    if (!isDragging) {
-      if (Math.abs(velocity.current) > 0.1) {
-        velocity.current *= 0.95;
-        xPos.current += velocity.current;
-      } else {
-        if (!isHovered.current) {
-            xPos.current -= 0.5; 
-        }
-      }
-    }
-
-    if (xPos.current <= -TOTAL_WIDTH * 2) {
-      xPos.current += TOTAL_WIDTH;
-    }
-    if (xPos.current > -TOTAL_WIDTH) {
-      xPos.current -= TOTAL_WIDTH;
-    }
-
-    if (containerRef.current) {
-      containerRef.current.style.transform = `translate3d(${xPos.current}px, 0, 0)`;
-    }
-    reqId.current = requestAnimationFrame(animate);
-  }, [isDragging, TOTAL_WIDTH]);
-
-  useEffect(() => {
-    xPos.current = -TOTAL_WIDTH;
-    reqId.current = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(reqId.current);
-  }, [animate, TOTAL_WIDTH]);
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    setIsDragging(true);
-    lastX.current = e.clientX;
-    velocity.current = 0;
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging) return;
-    const delta = e.clientX - lastX.current;
-    lastX.current = e.clientX;
-    xPos.current += delta;
-    velocity.current = delta;
-  };
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setIsDragging(true);
-    lastX.current = e.touches[0].clientX;
-    velocity.current = 0;
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (!isDragging) return;
-    const delta = e.touches[0].clientX - lastX.current;
-    lastX.current = e.touches[0].clientX;
-    xPos.current += delta;
-    velocity.current = delta;
-  };
-
-  const stopDrag = () => setIsDragging(false);
+  // Duplicated projects to ensure seamless loop for wide screens
+  const slides = [...PROJECTS, ...PROJECTS];
 
   return (
-    <div 
-        className="relative w-full overflow-hidden py-12"
-        onMouseEnter={() => { isHovered.current = true; }}
-        onMouseLeave={() => { isHovered.current = false; stopDrag(); }}
-        onMouseUp={stopDrag}
-        onTouchEnd={stopDrag}
-    >
-      <div 
-        ref={containerRef}
-        className="flex gap-8 cursor-grab active:cursor-grabbing will-change-transform"
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-      >
+    <div className="relative w-full overflow-hidden py-12 bg-black group">
+      {/* Gradient Masks for Fade Effect */}
+      <div className="absolute top-0 left-0 h-full w-32 bg-gradient-to-r from-black to-transparent z-20 pointer-events-none"></div>
+      <div className="absolute top-0 right-0 h-full w-32 bg-gradient-to-l from-black to-transparent z-20 pointer-events-none"></div>
+
+      {/* Animated Track */}
+      <div className="flex w-max animate-scroll group-hover:[animation-play-state:paused]">
         {slides.map((project, idx) => (
           <div 
             key={`${project.id}-${idx}`} 
-            className="relative flex-shrink-0 w-[320px] h-[450px] md:h-[500px] bg-[#0a0a0a] border border-white/10 transition-colors duration-500 group overflow-hidden select-none rounded-xl"
+            className="relative flex-shrink-0 w-[320px] h-[450px] md:h-[500px] bg-[#0a0a0a] border border-white/10 transition-colors duration-500 group/card overflow-hidden select-none rounded-xl mx-4"
           >
-            <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-40 transition-transform duration-700 group-hover:scale-110`}></div>
+            <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-40 transition-transform duration-700 group-hover/card:scale-110`}></div>
             <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
             <div className="absolute inset-0" style={{backgroundImage: 'linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)', backgroundSize: '20px 20px'}}></div>
 
             <div className="absolute inset-0 p-8 flex flex-col justify-between z-10">
                 <div className="flex justify-between items-start relative z-20">
                     <span className="text-5xl font-serif font-bold text-white/10">{project.id.toString().padStart(2, '0')}</span>
-                    <div className="p-2 backdrop-blur-md rounded-full border bg-black/50 border-white/10"><ArrowRight size={16} className="text-amber-400 -rotate-45 group-hover:rotate-0 transition-transform" /></div>
+                    <div className="p-2 backdrop-blur-md rounded-full border bg-black/50 border-white/10"><ArrowRight size={16} className="text-amber-400 -rotate-45 group-hover/card:rotate-0 transition-transform" /></div>
                 </div>
-                <div className="absolute top-20 right-16 z-0 opacity-80 group-hover:scale-110 transition-transform duration-500 pointer-events-none"><MiniSentinel pose={project.pose} /></div>
+                
+                {/* Mini Sentinel (Top Right) */}
+                <div className="absolute top-20 right-12 z-0 opacity-80 group-hover/card:scale-110 transition-transform duration-500 pointer-events-none">
+                    <MiniSentinel pose={project.pose} />
+                </div>
+
                 <div className="space-y-4 relative z-20">
                     <div className="text-amber-500 text-[10px] uppercase tracking-widest font-mono">{project.category}</div>
                     <h3 className="text-2xl font-serif leading-tight text-white">{project.title}</h3>
@@ -542,7 +469,6 @@ const ProjectSlider = () => {
           </div>
         ))}
       </div>
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-amber-500/20 rounded-full mt-8 overflow-hidden"><div className="h-full bg-amber-500 w-1/3 animate-slide-indeterminate"></div></div>
     </div>
   );
 };
@@ -743,8 +669,11 @@ export default function GrandPortfolio() {
       </nav>
 
       <div className={`fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 transition-transform duration-500 ease-in-out md:hidden print:hidden bg-[#050505] text-white ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+         {/* FIXED: Added Close Button for Mobile Menu */}
+         <button onClick={() => setMobileMenuOpen(false)} className="absolute top-8 right-8 p-2 text-amber-400 hover:text-white"><X size={32} /></button>
+         
          {NAV_LINKS.map((link) => (<a key={link} href={`#${link.toLowerCase()}`} onClick={() => { setMobileMenuOpen(false); setActiveView('home'); }} className="text-2xl font-serif hover:text-amber-400 transition-colors">{link}</a>))}
-         <CyberButton onClick={() => toggleView('resume')}>View Resume</CyberButton>
+         <CyberButton onClick={() => { setMobileMenuOpen(false); toggleView('resume'); }}>View Resume</CyberButton>
       </div>
 
       {activeView === 'resume' ? <ResumeView onBack={() => toggleView('home')} /> : (
@@ -756,7 +685,7 @@ export default function GrandPortfolio() {
                   <Sparkles size={12} className="text-amber-500" /><span className="text-[10px] uppercase tracking-widest text-amber-200 animate-pulse">Open to AI & Web Roles</span>
                 </div>
                 <h1 className="text-4xl md:text-8xl font-serif font-medium text-white leading-[1.1] relative"><span className="relative inline-block">Nihith Penumuchu<span className="absolute top-0 left-0 -z-10 w-full h-full text-amber-500/30 opacity-50 animate-pulse blur-[2px] translate-x-1">Nihith Penumuchu</span></span><br /><span className="italic text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-700 text-3xl md:text-7xl">AI Engineer & Architect.</span></h1>
-                <p className="max-w-xl text-base md:text-lg text-slate-400 leading-relaxed font-light mx-auto md:mx-0 animate-fade-in delay-100">Motivated Computer Science graduate at SRM University. Blending robust backend logic with immersive, high-performance front-end experiences.</p>
+                <p className="max-w-xl text-base md:text-lg text-slate-400 leading-relaxed font-light mx-auto md:mx-0 animate-fade-in delay-100">Motivated Computer Science undergraduate at SRM University. Blending robust backend logic with immersive, high-performance front-end experiences.</p>
                 <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 pt-4 justify-center md:justify-start animate-fade-in delay-200"><CyberButton href="#projects">View Projects <ArrowRight size={16} /></CyberButton><CyberButton onClick={() => toggleView('resume')}><FileText size={16} /> Resume</CyberButton></div>
                 <div className="flex gap-6 justify-center md:justify-start pt-4 animate-fade-in delay-300"><a href="https://github.com/NIHITHPENUMUCHU" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white transition-colors hover:scale-110 transform duration-200"><GithubIcon size={24} /></a><a href="https://linkedin.com/in/nihith-penumuchu-132219253" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white transition-colors hover:scale-110 transform duration-200"><LinkedinIcon size={24} /></a><a href="https://nihith-penumuchu-portfolio.netlify.app" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white transition-colors hover:scale-110 transform duration-200"><Globe size={24} /></a></div>
               </div>
@@ -797,8 +726,9 @@ export default function GrandPortfolio() {
 
           <section id="projects" className="relative z-10 py-20 md:py-32 px-0 overflow-hidden bg-black">
             <div className="max-w-7xl mx-auto px-6 mb-12"><SectionHeader title="Featured Projects" subtitle="Innovation" /></div>
+            {/* Updated Slider to Pure CSS Marquee */}
             <ProjectSlider />
-            <div className="text-center mt-12 text-xs uppercase tracking-widest animate-pulse text-slate-400">Drag to explore</div>
+            <div className="text-center mt-12 text-xs uppercase tracking-widest animate-pulse text-slate-400"></div>
           </section>
 
           <section className="relative z-10 py-20 md:py-32 px-6 border-t bg-[#0a0a0a] border-white/5">
@@ -870,6 +800,14 @@ export default function GrandPortfolio() {
         @keyframes scan { 0%, 100% { top: 5%; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 50% { top: 90%; } }
         @keyframes grid-move { 0% { transform: perspective(1000px) rotateX(60deg) translateY(0); } 100% { transform: perspective(1000px) rotateX(60deg) translateY(40px); } }
         @keyframes bounce-small { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+        
+        /* CSS Scroll Animation */
+        @keyframes scroll { 
+          from { transform: translateX(0); } 
+          to { transform: translateX(-50%); } 
+        }
+
+        .animate-scroll { animation: scroll 40s linear infinite; }
         .animate-grid-move { animation: grid-move 2s linear infinite; }
         .animate-scan { animation: scan 3s ease-in-out infinite; }
         .animate-float { animation: float 10s ease-in-out infinite; }
@@ -880,8 +818,10 @@ export default function GrandPortfolio() {
         .animate-fade-in { animation: fade-in 0.8s ease-out forwards; }
         .animate-slide-indeterminate { animation: slide-indeterminate 3s infinite linear; }
         .animate-pulse-slow { animation: pulse 4s infinite; }
+        
         .scrollbar-hide::-webkit-scrollbar { display: none; }
         .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        
         @media (min-width: 768px) { body, a, button, input, textarea { cursor: none; } }
       `}</style>
     </div>
